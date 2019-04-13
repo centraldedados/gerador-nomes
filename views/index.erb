@@ -8,6 +8,7 @@
 <style>
   a:hover {text-decoration: none;}
   ul {list-style-type: none;}
+  #play_control {cursor: pointer;}
 </style>
 
 
@@ -16,12 +17,13 @@
   <article class="vh-100 dt w-100">
     <div class="dtc v-mid tc ph3 ph4-l">
       <h1 class="f-subheadline-l lh-solid-l lh-title-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
-      <p>Nomes aleatórios gerados a partir de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.</p>
+      <p>Nomes portugueses aleatórios gerados a partir de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.</p>
+      <p><span id="play_control">&#9658;</span>
     </div>
   </article>
 
 
-  <script>
+<script type="text/javascript">
 
   function getNomeAleatorio() {
 
@@ -37,15 +39,36 @@
     .catch(err => { throw err });
   }
 
-(function() {
+  // Play functionality
+  var play;
 
-  getNomeAleatorio();
+  function startPlay() {
+    play = setInterval(getNomeAleatorio, 3000);
+  }
 
-  setInterval(function(){ 
-    getNomeAleatorio();  
-  }, 2500);
+  function stopPlay() {
+    clearTimeout(play);
+  }
 
-})();
+  // On Page load
+  (function() {
+
+    getNomeAleatorio();
+
+    document.getElementById('play_control').onclick=function(){
+      if (this.innerHTML == "►") {
+        //console.log('play')
+        startPlay()
+        this.innerHTML = "&#10074;&#10074;"
+      } else {
+        //console.log('pause')
+        stopPlay()
+        this.innerHTML = "&#9658;"
+      }
+    }
+
+
+  })();
 
 </script>
 
