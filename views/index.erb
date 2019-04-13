@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
 
 <style>
-  h1 {font-size: 52px;}
+  a:hover {text-decoration: none;}
 </style>
 
 <body class="sans-serif bg-light-yellow">
@@ -15,8 +15,8 @@
 
   <article class="vh-100 dt w-100">
     <div class="dtc v-mid tc ph3 ph4-l">
-      <h1 class="f6 f2-m f-subheadline-l fw6 tc"><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>
-      <p>Gerado a partir de <%= @nomes_count %> nomes e <%= @apelidos_count %> apelidos.</p>
+      <h1 class="f-subheadline-l lh-solid-l lh-title-ns tc"><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>
+      <p>Nomes aleatórios gerados a partir de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.</p>
     </div>
   </article>
 
