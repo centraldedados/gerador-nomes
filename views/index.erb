@@ -1,17 +1,24 @@
 <head>
-  <meta http-equiv="Refresh" content="1"> 
+  <meta http-equiv="Refresh" content="2.5"> 
 </head>
 
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+
 <style>
-  body {margin: 40px; font-family: sans-serif; font-size: 16px;}
-  h1, p {margin: 0; padding: 0;}
-  h1 {font-size: 46px; margin: 0 auto; text-align: center;}
-  p {display: none;}
+  h1 {font-size: 52px;}
 </style>
 
-<body>
-  <p><%= @nomes_count %> nomes </p>
-  <p><%= @apelidos_count %> apelidos</p>
-  <h1><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>
+<body class="sans-serif bg-light-yellow">
+  <!--<p><%= @nomes_count %> nomes </p>
+  <p><%= @apelidos_count %> apelidos</p>-->
+  <!--<h1 class="center w-100 tc fw-900 near-black"><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>-->
+
+  <article class="vh-100 dt w-100">
+    <div class="dtc v-mid tc ph3 ph4-l">
+      <h1 class="f6 f2-m f-subheadline-l fw6 tc"><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>
+      <p>Gerado a partir de <%= @nomes_count %> nomes e <%= @apelidos_count %> apelidos.</p>
+    </div>
+  </article>
+
 
 <bod>
