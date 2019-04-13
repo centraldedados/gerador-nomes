@@ -18,6 +18,14 @@ get '/' do
   erb :index
 end
 
+get '/nome_aleatorio' do
+  @nome1 = nomes.sample
+  @nome2 = nomes.sample
+  @apelido1 = apelidos.sample
+  @apelido2 = apelidos.sample
+  [@nome1, @nome2, @apelido1, @apelido2].to_json
+end
+
 get '/nome' do
   nomes.sample
 end

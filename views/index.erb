@@ -1,5 +1,6 @@
+<html>
 <head>
-  <meta http-equiv="Refresh" content="2.5"> 
+  <title>Gerador de Nomes</title>
 </head>
 
 <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
@@ -9,6 +10,7 @@
   ul {list-style-type: none;}
 </style>
 
+
 <body class="sans-serif bg-light-yellow">
   <!--<p><%= @nomes_count %> nomes </p>
   <p><%= @apelidos_count %> apelidos</p>-->
@@ -16,10 +18,40 @@
 
   <article class="vh-100 dt w-100">
     <div class="dtc v-mid tc ph3 ph4-l">
-      <h1 class="f-subheadline-l lh-solid-l lh-title-ns tc"><%= @nome1 %> <%= @apelido1 %> <%= @apelido2%></h1>
+      <h1 class="f-subheadline-l lh-solid-l lh-title-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
       <p>Nomes aleatórios gerados a partir de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.</p>
     </div>
   </article>
 
 
-<bod>
+  <script>
+
+  function getNomeAleatorio() {
+
+    let url = '/nome_aleatorio';
+
+    fetch(url)
+    .then(res => res.json())
+    .then((out) => {
+      document.getElementById("nome1").textContent=out[0];
+      document.getElementById("apelido1").textContent=out[2];
+      document.getElementById("apelido2").textContent=out[3];
+    })
+    .catch(err => { throw err });
+  }
+
+(function() {
+
+  getNomeAleatorio();
+
+  setInterval(function(){ 
+    getNomeAleatorio();  
+  }, 2500);
+
+})();
+
+</script>
+
+
+<body>
+</html>
