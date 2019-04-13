@@ -58,11 +58,12 @@
     document.getElementById('play_control').onclick=function(){
       if (this.innerHTML == "►") {
         //console.log('play')
-        startPlay()
+        getNomeAleatorio();
+        startPlay();
         this.innerHTML = "&#10074;&#10074;"
       } else {
         //console.log('pause')
-        stopPlay()
+        stopPlay();
         this.innerHTML = "&#9658;"
       }
     }
