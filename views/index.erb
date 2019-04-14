@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <title>Gerador de Nomes</title>
@@ -16,8 +17,8 @@
 
   <article class="vh-100 dt w-100">
     <div class="dtc v-mid tc ph3 ph4-l">
-      <h1 class="f-subheadline-l lh-solid-l lh-title-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
-      <p>Nomes portugueses aleatórios gerados a partir de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.</p>
+      <h1 class="f-subheadline-ns f-subheadline-m f-subheadline-l lh-solid-l lh-solid-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
+      <p class="mw7 center f5 lh-copy">Nomes portugueses aleatórios gerados de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="dark-blue">nomes próprios</a>*</span> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="dark-blue">apelidos</a>.<br><span class="f7 near-dark">* nomes registados de  recém-nascidos com mais de 20 ocorrências em 2016</p>
       <p class="f3 dark-gray"><span id="play_control">&#9658;</span>
     </div>
   </article>
@@ -34,8 +35,8 @@
     .then(res => res.json())
     .then((out) => {
       document.getElementById("nome1").textContent=out[0];
-      document.getElementById("apelido1").textContent=out[2];
-      document.getElementById("apelido2").textContent=out[3];
+      document.getElementById("apelido1").textContent=out[1];
+      document.getElementById("apelido2").textContent=out[2];
     })
     .catch(err => { throw err });
   }
