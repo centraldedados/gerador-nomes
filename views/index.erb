@@ -19,7 +19,7 @@
     <div class="dtc v-mid tc ph3 ph4-l">
       <h1 class="f-subheadline-ns f-subheadline-m f-subheadline-l lh-solid-l lh-solid-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
       <p class="mw7 center f5 lh-copy">Nomes portugueses aleatórios gerados de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="black">nomes próprios</a>*</span> e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="black">apelidos</a>.<br><span class="f7 near-dark">* nomes registados de  recém-nascidos com 5 ou mais ocorrências em 2016</p>
-      <p class="f3 dark-gray"><span id="play_control">&#9658;</span>
+      <p class="f3 dark-gray"><span id="play_control">&#10074;&#10074;</span>
     </div>
   </article>
 
@@ -48,7 +48,7 @@
     play = setInterval(getNomeAleatorio, 2500);
   }
 
-  function stopPlay() {
+  function pausePlay() {
     clearTimeout(play);
   }
 
@@ -57,6 +57,9 @@
 
     // Get the first random name
     getNomeAleatorio();
+
+    // StartPlay()
+    startPlay();
 
     // Play controls click
     document.getElementById('play_control').onclick=function(){
@@ -67,7 +70,7 @@
         this.innerHTML = "&#10074;&#10074;"
       } else {
         //console.log('pause')
-        stopPlay();
+        pausePlay();
         this.innerHTML = "&#9658;"
       }
     }
