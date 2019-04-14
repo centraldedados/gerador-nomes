@@ -2,6 +2,8 @@
 
 [https://gerador-nomes.herokuapp.com](https://gerador-nomes.herokuapp.com)
 
+Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://github.com/centraldedados/nomes_proprios) e [apelidos](https://github.com/centraldedados/apelidos).
+
 #### API disponível
 
 - /nome_aleatorio
