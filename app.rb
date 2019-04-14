@@ -5,7 +5,7 @@ require 'sinatra/reloader'
 require "sinatra/multi_route"
 require "csv"
 
-
+# Nomes e Apelidos
 nomes = Array.new
 apelidos = Array.new
 
@@ -18,15 +18,16 @@ File.read("data/apelidos.csv").each_line do |line|
 end
 
 
+# Homepage
 get '/' do
   @nomes_count = nomes.count
   @apelidos_count = apelidos.count
   @nome1 = nomes.sample
-  @nome2 = nomes.sample
   @apelido1 = apelidos.sample
   @apelido2 = apelidos.sample
   erb :index
 end
+
 
 # API
 get '/nome_aleatorio' do
