@@ -13,11 +13,11 @@ nomes = Array.new
 apelidos = Array.new
 
 File.read("data/nomes.csv").each_line do |line|
-  nomes << line
+  nomes << line.strip
 end
 
 File.read("data/apelidos.csv").each_line do |line|
-  apelidos << line
+  apelidos << line.strip
 end
 
 
@@ -33,7 +33,7 @@ end
 
 
 # API
-get '/nome_aleatorio' do
+get '/nome/aleatorio' do
   @nome1 = nomes.sample
   @apelido1 = apelidos.sample
   @apelido2 = apelidos.sample
@@ -44,25 +44,18 @@ get '/nome' do
   nomes.sample
 end
 
+get '/nomes', '/nomes/:number' do
+  params['number'] ? number = params['number'].to_i : number = 10
+  nomes.shuffle[0,number].to_json
+end
+
+
 get '/apelido' do
   apelidos.sample
 end
 
-get '/nomes', '/nomes/:number' do
-  if params['number']
-    number = params['number'].to_i
-  else
-    number = 10
-  end
-  nomes.shuffle[0,number].to_json
-end
-
 get '/apelidos', '/apelidos/:number' do
-  if params['number']
-    number = params['number'].to_i
-  else
-    number = 10
-  end
+  params['number'] ? number = params['number'].to_i : number = 10
   apelidos.shuffle[0,number].to_json
 end
 

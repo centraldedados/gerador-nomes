@@ -6,10 +6,10 @@ Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://gith
 
 #### API disponível
 
-- /nome_aleatorio
-- /nomes  
+- /nome/aleatorio
+- /nome  
 - /nomes/10  
-- /apelidos  
+- /apelido  
 - /apelidos/10  
 
 #### Comandos
