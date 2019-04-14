@@ -25,6 +25,7 @@
 
 <script type="text/javascript">
 
+  // Get the random name
   function getNomeAleatorio() {
 
     let url = '/nome_aleatorio';
@@ -53,8 +54,10 @@
   // On Page load
   (function() {
 
+    // Get the first random name
     getNomeAleatorio();
 
+    // Play controls click
     document.getElementById('play_control').onclick=function(){
       if (this.innerHTML == "►") {
         //console.log('play')
