@@ -2,7 +2,7 @@
 
 [https://gerador-nomes.herokuapp.com](https://gerador-nomes.herokuapp.com)
 
-### API disponível:
+#### API disponível
 
 - /nome_aleatorio
 - /nomes  
@@ -10,7 +10,12 @@
 - /apelidos  
 - /apelidos/10  
 
+#### Comandos
 
-### To-Do:
+``make install`` - instalar dependências  
+``make run`` - correr localmente  
+``make deploy`` - deployment para uma conta Heroku  
+
+#### To-Do
 
 - back + forward
