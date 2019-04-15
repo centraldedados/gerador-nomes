@@ -21,6 +21,7 @@ GEM
       rack-protection (= 2.0.5)
       sinatra (= 2.0.5)
       tilt (>= 1.3, < 3)
+    sinatra-cross_origin (0.4.0)
     tilt (2.0.9)
 
 PLATFORMS
@@ -31,6 +32,7 @@ DEPENDENCIES
   json
   sinatra
   sinatra-contrib
+  sinatra-cross_origin
 
 BUNDLED WITH
    1.16.6
