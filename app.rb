@@ -3,6 +3,10 @@
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
+# enable direct JSON requests
+# https://stackoverflow.com/questions/33246470/sinatra-app-on-heroku-responds-with-forbidden-if-i-follow-links
+set :protection, :except => [:json_csrf]
+
 require 'sinatra'
 require 'sinatra/reloader'
 require "sinatra/multi_route"
