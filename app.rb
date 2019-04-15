@@ -15,6 +15,8 @@ configure do
   enable :cross_origin
 end
 
+set :protection, :except => [:frame_options, :json_csrf]
+
 # Set content type to JSON
 # override this for homepage
 before do
