@@ -16,7 +16,6 @@ Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://gith
 
 ``make install`` - instalar dependências  
 ``make run`` - correr localmente  
-``make deploy`` - deployment para uma conta Heroku  
 
 #### To-Do
 
