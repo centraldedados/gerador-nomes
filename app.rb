@@ -51,28 +51,28 @@ end
 
 
 # API
-get '/nome/aleatorio' do
+get '/nome/aleatorio/?' do
   @nome1 = nomes.sample
   @apelido1 = apelidos.sample
   @apelido2 = apelidos.sample
   [@nome1, @apelido1, @apelido2].to_json
 end
 
-get '/nome' do
+get '/nome/?' do
   nomes.sample.to_json
 end
 
-get '/nomes', '/nomes/:number' do
+get '/nomes/?', '/nomes/:number/?' do
   params['number'] ? number = params['number'].to_i : number = 10
   nomes.shuffle[0,number].to_json
 end
 
 
-get '/apelido' do
+get '/apelido/?' do
   apelidos.sample.to_json
 end
 
-get '/apelidos', '/apelidos/:number' do
+get '/apelidos/?', '/apelidos/:number/?' do
   params['number'] ? number = params['number'].to_i : number = 10
   apelidos.shuffle[0,number].to_json
 end
