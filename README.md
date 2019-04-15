@@ -6,6 +6,8 @@ Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://gith
 
 #### API
 
+Nos ``nomes próprios`` e ``apelidos`` é possível indicar o número de elementos que é pretendido que retorne. Exemplo: [https://gerador-nomes.herokuapp.com/apelidos/25](https://gerador-nomes.herokuapp.com/apelidos/25)  
+
 - /nome/aleatorio
 - /nome  
 - /nomes/10  
