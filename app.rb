@@ -7,6 +7,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require "sinatra/multi_route"
 require "csv"
+require "json"
 
 # Nomes e Apelidos
 nomes = Array.new
@@ -34,6 +35,7 @@ end
 
 # API
 get '/nome/aleatorio' do
+  content_type :json
   @nome1 = nomes.sample
   @apelido1 = apelidos.sample
   @apelido2 = apelidos.sample
@@ -41,20 +43,24 @@ get '/nome/aleatorio' do
 end
 
 get '/nome' do
+  content_type :json
   nomes.sample
 end
 
 get '/nomes', '/nomes/:number' do
+  content_type :json
   params['number'] ? number = params['number'].to_i : number = 10
   nomes.shuffle[0,number].to_json
 end
 
 
 get '/apelido' do
+  content_type :json
   apelidos.sample
 end
 
 get '/apelidos', '/apelidos/:number' do
+  content_type :json
   params['number'] ? number = params['number'].to_i : number = 10
   apelidos.shuffle[0,number].to_json
 end

@@ -3,6 +3,7 @@ GEM
   specs:
     backports (3.13.0)
     csv (3.0.8)
+    json (2.1.0)
     multi_json (1.13.1)
     mustermann (1.0.3)
     rack (2.0.7)
@@ -27,6 +28,7 @@ PLATFORMS
 
 DEPENDENCIES
   csv
+  json
   sinatra
   sinatra-contrib
 

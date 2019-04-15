@@ -4,7 +4,7 @@
 
 Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://github.com/centraldedados/nomes_proprios) e [apelidos](https://github.com/centraldedados/apelidos).
 
-#### API disponível
+#### API
 
 - /nome/aleatorio
 - /nome  

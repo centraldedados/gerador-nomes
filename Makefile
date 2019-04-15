@@ -7,3 +7,6 @@ install:
 
 deploy:
 	git push heroku master
+
+push:
+	git push origin master
