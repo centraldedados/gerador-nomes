@@ -15,6 +15,8 @@ configure do
   enable :cross_origin
 end
 
+set :protection, :except => :ip_spoofing
+
 # Nomes e Apelidos
 nomes = Array.new
 apelidos = Array.new
