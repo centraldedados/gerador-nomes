@@ -5,11 +5,7 @@
   <title>Gerador de Nomes</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <% if Sinatra::Application.environment.to_s == "development" %>
-  <link rel="stylesheet" href="/tachyons.min.css"/>
-  <% elsif Sinatra::Application.environment.to_s == "production" %>
-  <link rel="stylesheet" href="/main.css"/>
-  <% end %>
+  <link rel="stylesheet" href="/css/<%= Sinatra::Application.environment.to_s == "development" ? "src/" : "" %>tachyons.min.css"/>
 
   <style>
     a:hover {text-decoration: none;}
@@ -18,6 +14,7 @@
     #previous_control {margin-right: 1.5em;}
     #next_control {margin-left: 1.5em;}
     .not_selectable {opacity: 0.25; cursor: default;}
+    .hide {display: none;}
   </style>
 
 </head>
@@ -33,9 +30,9 @@
       <p class="mw7 center f5 lh-copy mb2">Nomes portugueses aleatórios gerados de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="black">nomes próprios</a>* e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="black">apelidos</a>.</p>
       <p class="f7 near-dark lh-solid mt0">* nomes próprios de recém-nascidos em 2016, com 2 ou mais registos</p>
       <p class="f2 dark-gray">
-        <span id="previous_control" class="f3 navigation">&#8592;</span>
+        <span id="previous_control" class="f3 navigation hide">&#8592;</span>
         <span id="play_control">&#10074;&#10074;</span>
-        <span id="next_control" class="f3 navigation not_selectable">&#8594;</span>
+        <span id="next_control" class="f3 navigation not_selectable hide">&#8594;</span>
       </p>
     </div>
     <div class="fixed left-0 bottom-2 right-0 tc">
