@@ -34,5 +34,8 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-cross_origin
 
+RUBY VERSION
+   ruby 2.5.3p105
+
 BUNDLED WITH
    1.16.6
