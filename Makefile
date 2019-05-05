@@ -8,9 +8,10 @@ install:
 build:
 	purgecss -c purgecss.config.js -o public/css
 
-deploy:
-	make build
-	git push heroku master
-
 push:
 	git push origin master
+
+deploy:
+	make push
+	make build
+	git push heroku master

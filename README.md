@@ -19,8 +19,3 @@ Exemplo: [https://gerador-nomes.herokuapp.com/apelidos/25](https://gerador-nomes
 
 ``make install`` - instalar dependências  
 ``make run`` - correr localmente  
-
-#### To-Do
-
-- back + forward
-- especificar género nos pedidos via API
