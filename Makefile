@@ -12,6 +12,5 @@ push:
 	git push origin master
 
 deploy:
-	make push
 	make build
 	git push heroku master
