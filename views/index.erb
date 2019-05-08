@@ -5,6 +5,22 @@
   <title>Gerador de Nomes</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- OG --> 
+  <meta property="og:title" content="Gerador de Nomes">
+  <meta property="og:site_name" content="Gerador de Nomes">
+  <meta property="og:url" content="https://gerador-nomes.herokuapp.com">
+  <meta property="og:description" content="Nomes portugueses aleatórios gerados a partir de nomes próprios e apelidos.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/facebook_preview.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content="https://gerador-nomes.herokuapp.com" />
+  <meta name="twitter:title" content="Gerador de Nomes" />
+  <meta name="twitter:description" content="Nomes portugueses aleatórios gerados a partir de nomes próprios e apelidos." />
+  <meta name="twitter:image" content="/img/twitter_preview.png" />
+
   <link rel="stylesheet" href="/css/<%= Sinatra::Application.environment.to_s == "development" ? "src/" : "" %>tachyons.min.css"/>
 
   <style>
