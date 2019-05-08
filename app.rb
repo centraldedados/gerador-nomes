@@ -37,44 +37,47 @@ File.read("data/apelidos.csv").each_line do |line|
 end
 
 
+# API helper method to parse the number of records to return
+def check_params(params_number, request_path_info)
+  # check if the route is plural or not
+  if !request.path_info.include? "s"
+    return 1
+  else
+    if params_number
+      number = params_number.to_i <= 100 ? params_number.to_i : 100
+    else
+      number = 10
+    end
+    return number
+  end
+end
+
+
 
 # Homepage
 get '/' do
   content_type :html
   @nomes_count = nomes.count
   @apelidos_count = apelidos.count
-  @nome1 = nomes.sample
-  @apelido1 = apelidos.sample
-  @apelido2 = apelidos.sample
   erb :index
 end
 
 
 # API
 get '/nome/aleatorio/?' do
-  @nome1 = nomes.sample
-  @apelido1 = apelidos.sample
-  @apelido2 = apelidos.sample
-  [@nome1, @apelido1, @apelido2].to_json
+  nome = nomes.sample
+  apelidos_random = apelidos.shuffle[0,2]
+  [nome, apelidos_random[0], apelidos_random[1]].to_json
 end
 
-get '/nome/?' do
-  nomes.sample.to_json
+get '/nome/?', '/nomes/?', '/nomes/:number/?' do
+  number_of_records = check_params(params[:number], request.path_info)
+  nomes.shuffle[0,number_of_records].to_json
 end
 
-get '/nomes/?', '/nomes/:number/?' do
-  params['number'] ? number = params['number'].to_i : number = 10
-  nomes.shuffle[0,number].to_json
-end
-
-
-get '/apelido/?' do
-  apelidos.sample.to_json
-end
-
-get '/apelidos/?', '/apelidos/:number/?' do
-  params['number'] ? number = params['number'].to_i : number = 10
-  apelidos.shuffle[0,number].to_json
+get '/apelido/?', '/apelidos/?', '/apelidos/:number/?' do
+  number_of_records = check_params(params[:number], request.path_info)
+  apelidos.shuffle[0,number_of_records].to_json
 end
 
 
