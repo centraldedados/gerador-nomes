@@ -4,7 +4,7 @@ run:
 install:
 	bundle install
 	npm i purgecss
-	heroku git
+	#heroku git
 
 build:
 	purgecss -c purgecss.config.js -o public/css
