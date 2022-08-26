@@ -6,3 +6,4 @@ gem 'sinatra-contrib'
 gem "sinatra-cross_origin"
 gem 'csv'
 gem 'json'
+gem 'puma'

@@ -6,6 +6,9 @@ GEM
     multi_json (1.15.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
+    puma (5.6.5)
+      nio4r (~> 2.0)
     rack (2.2.4)
     rack-protection (2.2.2)
       rack
@@ -30,6 +33,7 @@ PLATFORMS
 DEPENDENCIES
   csv
   json
+  puma
   sinatra
   sinatra-contrib
   sinatra-cross_origin

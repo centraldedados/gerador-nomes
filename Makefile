@@ -1,21 +1,26 @@
 run:
-	bundle exec ruby app.rb
+	bundle exec ruby app.rb -p 8080
 
 install:
 	bundle install
-	npm i purgecss
-	#heroku git
-
-build:
-	purgecss -c purgecss.config.js -o public/css
 
 push:
 	git push origin master
 
-herokufy:
-	heroku git:remote -a gerador-nomes
-
+# Deployment
+fly_deploy:
+	flyctl deploy --remote-only --strategy bluegreen
+	
 deploy:
-	make build
-	git push heroku master
+	make fly_deploy
+
+ssh:
+	flyctl ssh console
+
+# herokufy:
+# 	heroku git:remote -a gerador-nomes
+
+# deploy:
+# 	make build
+# 	git push heroku master
 
