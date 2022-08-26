@@ -1,6 +1,6 @@
 # 👪 Gerador de nomes
 
-[https://gerador-nomes.herokuapp.com](https://gerador-nomes.herokuapp.com)
+[https://gerador-nomes.fly.dev](https://gerador-nomes.herokuapp.com)
 
 Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://github.com/centraldedados/nomes_proprios) e [apelidos](https://github.com/centraldedados/apelidos).
 
@@ -12,7 +12,7 @@ Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://gith
 - [/apelidos/10](http://gerador-nomes.herokuapp.com/apelidos/10)  
 
 Nos ``nomes próprios`` e ``apelidos`` é possível indicar o número de registos que se pretende que retorne, até um máximo de ``100``.  
-Exemplo: [https://gerador-nomes.herokuapp.com/apelidos/25](https://gerador-nomes.herokuapp.com/apelidos/25) 
+Exemplo: [https://gerador-nomes.fly.dev/apelidos/25](https://gerador-nomes.herokuapp.com/apelidos/25) 
 
 #### Comandos
 
