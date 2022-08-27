@@ -14,6 +14,7 @@ Nomes portugueses aleatórios gerados a partir de nomes [próprios](https://gith
 Nos ``nomes próprios`` e ``apelidos`` é possível indicar o número de registos que se pretende que retorne, até um máximo de ``100``.  
 Exemplo: [https://gerador-nomes.wolan.net/apelidos/25](https://gerador-nomes.wolan.net/apelidos/25) 
 
+
 #### Comandos
 
 ``make install`` - instalar dependências  
