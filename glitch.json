@@ -1,0 +1,15 @@
+{
+  "install": "bundle install",
+  "start": "bundle exec rackup config.ru -p $PORT -s puma -o 0.0.0.0",
+  "watch": {
+    "install": {
+      "include": ["^glitch\\.json$", "^Gemfile.lock", "^\\.env$"],
+      "exclude": []
+    },
+    "restart": {
+      "include": [".rb$"],
+      "exclude": ["^vendor/bundle"]
+    },
+    "throttle": 1000
+  }
+}
