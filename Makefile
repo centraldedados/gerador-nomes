@@ -17,10 +17,3 @@ deploy:
 ssh:
 	flyctl ssh console
 
-# herokufy:
-# 	heroku git:remote -a gerador-nomes
-
-# deploy:
-# 	make build
-# 	git push heroku master
-
