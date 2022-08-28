@@ -20,6 +20,11 @@ set :protection, :except => [:frame_options, :json_csrf]
 # Set content type to JSON
 # override this for homepage
 before do
+  # For deployment
+  if request.host == "gerador-nomes.fly.dev"
+    redirect 'https://gerador-nomes.wolan.net'
+  end
+  # API
   content_type 'application/json'
 end
 
