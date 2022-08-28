@@ -22,7 +22,7 @@ set :protection, :except => [:frame_options, :json_csrf]
 before do
   # For deployment
   if request.host == "gerador-nomes.fly.dev"
-    redirect 'https://gerador-nomes.wolan.net'
+    redirect 'https://gerador-nomes.wolan.net', 301
   end
   # API
   content_type 'application/json'
