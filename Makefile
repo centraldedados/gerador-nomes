@@ -3,9 +3,13 @@ run:
 
 install:
 	bundle install
+	make add_platform
 
 push:
 	git push origin master
+
+add_platform:
+	bundle lock --add-platform x86_64-linux
 
 # Deployment
 fly_deploy:

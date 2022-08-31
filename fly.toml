@@ -1,11 +1,11 @@
-# fly.toml file generated for gerador-nomes on 2022-08-27T22:50:50+01:00
+# fly.toml file generated for gerador-nomes on 2022-08-31T15:55:39+01:00
 
 app = "gerador-nomes"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
-[build]
-  builder = "heroku/buildpacks:20"
+# [build]
+#   builder = "heroku/buildpacks:20"
 
 [env]
   PORT = "8080"
@@ -16,7 +16,7 @@ kill_timeout = 5
   auto_rollback = true
 
 [processes]
-  web = "make run"
+  web = "bundle exec ruby app.rb -p 8080"
 
 [[services]]
   http_checks = []
