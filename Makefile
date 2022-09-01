@@ -21,3 +21,6 @@ deploy:
 ssh:
 	flyctl ssh console
 
+ping:
+	flyctl curl https://gerador-nomes.fly.dev
+
