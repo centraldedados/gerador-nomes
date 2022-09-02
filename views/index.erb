@@ -45,7 +45,7 @@
 
   <article class="vh-100 dt w-100">
     <div class="dtc v-mid tc ph3 ph4-l">
-      <h1 class="f1 f-subheadline-l f-subheadline-m lh-solid-l lh-solid-m lh-solid-ns tc"><span id="nome1"></span> <span id="apelido1"></span> <span id="apelido2"></span></h1>
+      <h1 class="f1 f-subheadline-l f-subheadline-m lh-solid-l lh-solid-m lh-solid-ns tc" id="nome_aleatorio">&nbsp;</h1>
       <p class="mw7 center f5 lh-copy mb2">Nomes portugueses aleatórios gerados de <%= @nomes_count %> <a href="https://github.com/centraldedados/nomes_proprios" target="_blank" class="black">nomes próprios</a>* e <%= @apelidos_count %> <a href="https://github.com/centraldedados/apelidos" target="_blank" class="black">apelidos</a>.</p>
       <p class="f7 near-dark lh-solid mt0">* nomes próprios de recém-nascidos em 2016, com 2 ou mais registos</p>
       <p class="f2 dark-gray">
@@ -60,58 +60,13 @@
   </article>
 
 
+
+<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+
 <script>
 
-  // Setup
-  var play_interval;
-
-  // Get a random name
-  function getNomeAleatorio() {
-
-    let url = '/nome/aleatorio';
-
-    fetch(url)
-    .then(res => res.json())
-    .then((out) => {
-      // Refresh Display
-      refreshDisplay(out[0], out[1], out[2])
-    })
-    .catch(err => { throw err });
-  }
-
-  // Refresh Display
-  function refreshDisplay(nome, apelido1, apelido2) {
-    document.getElementById("nome1").textContent = nome
-    document.getElementById("apelido1").textContent = apelido1
-    document.getElementById("apelido2").textContent = apelido2
-  }
-
-
-  // Start Play
-  function play() {
-    play_interval = setInterval(getNomeAleatorio, 3000);
-  }
-
-  // Pause Play
-  function pause() {
-    clearTimeout(play_interval);
-  }
-
-  // Enable controls
-  function enableControls() {
-
-    // Play/Pause control
-    document.getElementById('play_control').onclick=function(){
-      if (this.innerHTML == "►") {
-        getNomeAleatorio();
-        play();
-        this.innerHTML = "&#10074;&#10074;"
-      } else {
-        pause();
-        this.innerHTML = "&#9658;"
-      }
-    }
-  }
 
   // On Page load
   (function() {
