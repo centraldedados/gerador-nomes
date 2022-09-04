@@ -1,7 +1,3 @@
-# encoding: utf-8
-
-Encoding.default_external = Encoding::UTF_8
-Encoding.default_internal = Encoding::UTF_8
 
 require 'sinatra'
 require 'sinatra/reloader'
@@ -10,54 +6,11 @@ require 'sinatra/cross_origin'
 require "csv"
 require "json"
 
-# Enabel cross origin for all routes
-configure do
-  enable :cross_origin
-end
+require_relative 'helpers/settings'
+require_relative 'helpers/methods'
 
-set :protection, :except => [:frame_options, :json_csrf]
-
-# Set content type to JSON
-# override this for homepage
-before do
-  # For deployment, but disabled while testing the use of canonical
-  # if request.host == "gerador-nomes.fly.dev"
-  #   redirect 'https://gerador-nomes.wolan.net', 301
-  # end
-
-  # API
-  content_type 'application/json'
-end
-
-
-# Nomes e Apelidos
-nomes = Array.new
-apelidos = Array.new
-
-File.read("data/nomes.csv").each_line do |line|
-  nomes << line.strip
-end
-
-File.read("data/apelidos.csv").each_line do |line|
-  apelidos << line.strip
-end
-
-
-# API helper method to parse the number of records to return
-def check_params(params_number, request_path_info)
-  # check if the route is plural or not
-  if !request.path_info.include? "s"
-    return 1
-  else
-    if params_number
-      number = params_number.to_i <= 100 ? params_number.to_i : 100
-    else
-      number = 10
-    end
-    return number
-  end
-end
-
+# Load nomes e apelidos from CSV files
+nomes, apelidos = load_data()
 
 
 # Homepage
@@ -85,5 +38,4 @@ get '/apelido/?', '/apelidos/?', '/apelidos/:number/?' do
   number_of_records = check_params(params[:number], request.path_info)
   apelidos.shuffle[0,number_of_records].to_json
 end
-
 

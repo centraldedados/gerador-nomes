@@ -1,7 +1,6 @@
 
 # Include the Ruby base image (https://hub.docker.com/_/ruby)
-# in the image for this application, version 2.7.6.
-FROM ruby:2.7.6
+FROM ruby:2.7.6-slim
 RUN apt-get update -qq && apt-get install -y build-essential
 
 # Production environment, because otherwise sinatra will start in development mode.
