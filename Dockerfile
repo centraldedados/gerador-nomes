@@ -1,6 +1,9 @@
 
 # Include the Ruby base image (https://hub.docker.com/_/ruby)
-FROM ruby:2.7.6-slim
+ARG RUBY_VERSION=2.7.6
+ARG VARIANT=jemalloc-slim
+FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT}
+
 RUN apt-get update -qq && apt-get install -y build-essential
 
 # Production environment, because otherwise sinatra will start in development mode.
