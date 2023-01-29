@@ -6,8 +6,8 @@ require 'sinatra/cross_origin'
 require "csv"
 require "json"
 
-require_relative 'helpers/settings'
 require_relative 'helpers/methods'
+require_relative 'helpers/settings'
 
 # Load nomes e apelidos from CSV files
 nomes, apelidos = load_data()
