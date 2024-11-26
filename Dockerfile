@@ -1,6 +1,6 @@
 
 # Include the Ruby base image (https://hub.docker.com/_/ruby)
-ARG RUBY_VERSION=2.7.6
+ARG RUBY_VERSION=3.3.5
 ARG VARIANT=jemalloc-slim
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT}
 
@@ -10,8 +10,8 @@ RUN apt-get update -qq && apt-get install -y build-essential libjemalloc2 && \
     rm -rf /var/lib/apt/lists/* /user/share/doc /user/share/man
 
 # Jemmaloc setup
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-ENV MALLOC_CONF=dirty_decay_ms:1000,narenas:2,background_thread:true
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2#ENV MALLOC_CONF=dirty_decay_ms:1000,narenas:2,background_thread:true
+ENV MALLOC_CONF="dirty_decay_ms:1000,narenas:2,background_thread:1"
 
 # Production environment, because otherwise Sinatra will start in development mode.
 ENV RACK_ENV=production

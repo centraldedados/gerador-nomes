@@ -1,5 +1,3 @@
-
-
 # Load data from files
 def load_data
   app_dir = Dir.pwd
@@ -7,12 +5,16 @@ def load_data
   nomes = Array.new
   apelidos = Array.new
 
-  File.read(app_dir + "/data/nomes.csv").each_line do |line|
-    nomes << line.strip
+  File.open(app_dir + "/data/nomes.csv", 'r:utf-8') do |file|
+    file.each_line do |line|
+      nomes << line.strip
+    end
   end
 
-  File.read(app_dir + "/data/apelidos.csv").each_line do |line|
-    apelidos << line.strip
+  File.open(app_dir + "/data/apelidos.csv", 'r:utf-8') do |file|
+    file.each_line do |line|
+      apelidos << line.strip
+    end
   end
 
   return [nomes, apelidos]
