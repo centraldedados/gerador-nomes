@@ -23,15 +23,16 @@ end
 
 # API helper method to parse the number of records to return
 def check_params(params_number, request_path_info)
-  # check if the route is plural or not
-  if !request.path_info.include? "s"
-    return 1
+  # Default to 1 if not plural route
+  return 1 unless request_path_info.include?("s")
+
+  if params_number
+    number = params_number.to_i
+    # Ensure number is between 1 and 100
+    number = [[number, 1].max, 100].min
   else
-    if params_number
-      number = params_number.to_i <= 100 ? params_number.to_i : 100
-    else
-      number = 10
-    end
-    return number
+    number = 10
   end
+
+  number
 end
