@@ -16,12 +16,12 @@ kill_timeout = 5
   PRIMARY_REGION = "ams"
 
 [processes]
-  web = "make run_production"
+  app = "make run_production"
 
 [[services]]
   protocol = "tcp"
   internal_port = 8080
-  processes = ["web"]
+  processes = ["app"]
 
   [[services.ports]]
     port = 80
